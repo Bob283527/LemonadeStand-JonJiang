@@ -1,17 +1,15 @@
-import java.util.Random;
-
 public class Customer {
 
     private double favorability;
-    private final int minFav = 0;
-    private final int maxFav = 50;
+    private int minFav = 0;
+    private int maxFav = 50;
 
     private double price;
     private double cash;
 
-    // find favorable the customer finds your lemonade
-    public void calculateFavorability(String weather, int temperature, double price, int recipeQuality) {
-        // favorability depends on weather and recipe quality
+    
+    public void calcFav(String weather, int temperature, double price, int recipeQuality) {
+        // favorability = weather and recipe quality
         favorability = 50;
 
         if (weather.equals("Sunny")) {
@@ -31,7 +29,7 @@ public class Customer {
     public boolean decideToBuy() {
         if (favorability >= 70) {
             Random rand = new Random();
-            int randFavNum = rand.nextInt((maxFav - minFav + 1)) + minFav;
+            int randFavNum = (int)(Math.random() * (maxFav - minFav + 1)) + minFav;
             return randFavNum >= 25;
         }
         return false;
