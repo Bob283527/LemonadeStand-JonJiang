@@ -14,17 +14,17 @@ public class Weather {
     // Method to randomly choose weather condition
     public void generateWeather() {
         Random rand = new Random();
-        int randNum = rand.nextInt((maxCond - minCond + 1)) + minCond;
+        int randNum = (int)(Math.random() * weatherConditions.length); //found this on w3 Schools the .length thing
         currentCondition = weatherConditions[randNum];
     }
 
-    // Method to randomly generate temperature
+    // random weather gen
     public void generateTemperature() {
         Random rand = new Random();
-        currentTemperature = rand.nextInt((maxTemp - minTemp + 1)) + minTemp;
+        currentTemperature = (int)(Math.random() * (maxTemp - minTemp + 1)) + minTemp;
     }
 
-    // Getter methods
+    // checking to see if it was working ysknow
     public String getCurrentCondition() {
         return currentCondition;
     }
