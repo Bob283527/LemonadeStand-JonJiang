@@ -1,31 +1,35 @@
+import java.util.Random;
+
 public class Weather {
-	
-	public static void main (String[] args) {
-		//Instance
-		
-		//for weather, may make bigger depending on if i add more weather conditions 
-		int min = 0;
-		int max = 3;
-		//for temp, might make bigger or smaller later
-		int min2 = 0;
-		int max2 = 100;
-		
-		//Attributes
-		String[] weatherConditions = {"Sunny", "Rainy", "Cloudy", "Hazy"};
-		
-		
-		
-		//methods
-		public randWeather(weatherConditions) {
-			//randomly decides what weather to give using the Weather/Condition array
-			int randNum = (int)(Math.random() * (max - min + 1)) + min;
-			finalWeather = weatherConditions[randNum];
-		}
-		public randTemp() {
-			//Random Temperature made
-			int randTemp = (int)(Math.random() * (max2 - min2 + 1)) + min2;
 
-		}
-	}
+    private final String[] weatherConditions = {"Sunny", "Rainy", "Cloudy", "Hazy"};
+    private int minTemp = 0;
+    private int maxTemp = 100;
+    private int minCond = 0;
+    private int maxCond = 3;
+
+    private String currentCondition;
+    private int currentTemperature;
+
+    // Method to randomly choose weather condition
+    public void generateWeather() {
+        Random rand = new Random();
+        int randNum = (int)(Math.random() * weatherConditions.length); //found this on w3 Schools the .length thing
+        currentCondition = weatherConditions[randNum];
+    }
+
+    // random weather gen
+    public void generateTemperature() {
+        Random rand = new Random();
+        currentTemperature = (int)(Math.random() * (maxTemp - minTemp + 1)) + minTemp;
+    }
+
+    // checking to see if it was working ysknow
+    public String getCurrentCondition() {
+        return currentCondition;
+    }
+
+    public int getCurrentTemperature() {
+        return currentTemperature;
+    }
 }
-

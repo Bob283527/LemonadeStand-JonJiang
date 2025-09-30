@@ -1,35 +1,39 @@
 public class Customer {
-	
-	public static void main (String[] args) {
-		//Instance
-		double favor;
-		
-		minFav = 0;
-		maxFav = 50;
-		
-		//Attributes
-		
-		
-		//Methods
-		public favoritability() {
-				//affected by the weather and temperature and price and recipe/how tasty it is
-				/*
-				 * 
-				 * 
-				 * */
-		}
-		
-		public decideToBuy {
-			if favor >= 70 {
-				int randFavNum = (int)(Math.random() * (maxFav - minFav + 1)) + minFav;
-				if randFavNum >= 25 {
-					cash = cash + Price;
-			else {
-				cash = cash
-			}
-		}
-		
-		
-	}
+
+    private double favorability;
+    private int minFav = 0;
+    private int maxFav = 50;
+
+    private double price;
+    private double cash;
+
+    
+    public void calcFav(String weather, int temperature, double price, int recipeQuality) {
+        // favorability = weather and recipe quality
+        favorability = 50;
+
+        if (weather.equals("Sunny")) {
+            favorability += 10;
+        } else if (weather.equals("Rainy")) {
+            favorability -= 15;
+        }
+
+        favorability += (recipeQuality * 0.5);
+        favorability -= price;
+
+        // a fav number between 0 and 100
+        favorability = Math.max(0, Math.min(favorability, 100));
+    }
+
+    // Decide to buy or not
+    public boolean decideToBuy() {
+        if (favorability >= 70) {
+            Random rand = new Random();
+            int randFavNum = (int)(Math.random() * (maxFav - minFav + 1)) + minFav;
+            return randFavNum >= 25;
+        }
+        return false;
+    }
 }
+
 
